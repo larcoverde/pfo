@@ -22,6 +22,22 @@ def organize_file(dir):
         folder_path = os.path.join(dir, category)
         os.makedirs(folder_path, exist_ok=True)
 
+    for filename in os.listdir(dir):
+        file_path = os.path.join(dir, filename)
+
+        if os.path.isdir(file_path):
+            continue
+
+        file_moved = False
+        for category, extensions in FILE_CATEGORIES.items():
+            if any(filename.lower().endswith(ext) for ext in extensions:
+                   shutil.move(file_path, os.path.join(
+                       dir, category, filename))
+                   file_moved = True
+                   break
+        if not file_moved:
+        shutil.move(file_path, os.path.join(dir, "others", filename))
+        
 def main():
     dir = input("directory path to organize: ")
     organize_file(dir)
