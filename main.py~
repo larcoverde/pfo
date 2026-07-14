@@ -1,0 +1,13 @@
+import os
+import shutil
+
+FILE_CATEGORIES = {
+    "images": [".jpg", ".jpeg", ".png"]
+    "
+}
+
+def main():
+    return;
+
+if __name__ == "__main__":
+    main()
